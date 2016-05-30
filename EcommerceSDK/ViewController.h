@@ -10,6 +10,9 @@
 
 @interface ViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIButton *Menubutton;
+@property  BOOL viewisHidden;
 
+- (IBAction)MenuButtonClicked:(id)sender;
 @end
 

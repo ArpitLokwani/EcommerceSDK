@@ -14,6 +14,9 @@
 		C82A540B1CFAF29700350F7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C82A540A1CFAF29700350F7A /* Assets.xcassets */; };
 		C82A540E1CFAF29700350F7A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C82A540C1CFAF29700350F7A /* LaunchScreen.storyboard */; };
 		C82A54191CFAF29700350F7A /* EcommerceSDKUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C82A54181CFAF29700350F7A /* EcommerceSDKUITests.m */; };
+		C82A54281CFAF5F300350F7A /* ALCustomColoredAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = C82A54271CFAF5F300350F7A /* ALCustomColoredAccessory.m */; };
+		C82A542B1CFAF63400350F7A /* CategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C82A542A1CFAF63400350F7A /* CategoryViewController.m */; };
+		C82A542E1CFAFF5000350F7A /* MenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = C82A542D1CFAFF5000350F7A /* MenuView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,12 @@
 		C82A54141CFAF29700350F7A /* EcommerceSDKUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EcommerceSDKUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C82A54181CFAF29700350F7A /* EcommerceSDKUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EcommerceSDKUITests.m; sourceTree = "<group>"; };
 		C82A541A1CFAF29700350F7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C82A54261CFAF5F300350F7A /* ALCustomColoredAccessory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALCustomColoredAccessory.h; sourceTree = "<group>"; };
+		C82A54271CFAF5F300350F7A /* ALCustomColoredAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALCustomColoredAccessory.m; sourceTree = "<group>"; };
+		C82A54291CFAF63400350F7A /* CategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryViewController.h; sourceTree = "<group>"; };
+		C82A542A1CFAF63400350F7A /* CategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryViewController.m; sourceTree = "<group>"; };
+		C82A542C1CFAFF5000350F7A /* MenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuView.h; sourceTree = "<group>"; };
+		C82A542D1CFAFF5000350F7A /* MenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +72,8 @@
 		C82A53F21CFAF29600350F7A = {
 			isa = PBXGroup;
 			children = (
+				C82A54261CFAF5F300350F7A /* ALCustomColoredAccessory.h */,
+				C82A54271CFAF5F300350F7A /* ALCustomColoredAccessory.m */,
 				C82A53FD1CFAF29700350F7A /* EcommerceSDK */,
 				C82A54171CFAF29700350F7A /* EcommerceSDKUITests */,
 				C82A53FC1CFAF29700350F7A /* Products */,
@@ -90,6 +101,10 @@
 				C82A540C1CFAF29700350F7A /* LaunchScreen.storyboard */,
 				C82A540F1CFAF29700350F7A /* Info.plist */,
 				C82A53FE1CFAF29700350F7A /* Supporting Files */,
+				C82A54291CFAF63400350F7A /* CategoryViewController.h */,
+				C82A542A1CFAF63400350F7A /* CategoryViewController.m */,
+				C82A542C1CFAFF5000350F7A /* MenuView.h */,
+				C82A542D1CFAFF5000350F7A /* MenuView.m */,
 			);
 			path = EcommerceSDK;
 			sourceTree = "<group>";
@@ -211,9 +226,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C82A54281CFAF5F300350F7A /* ALCustomColoredAccessory.m in Sources */,
+				C82A542B1CFAF63400350F7A /* CategoryViewController.m in Sources */,
 				C82A54061CFAF29700350F7A /* ViewController.m in Sources */,
 				C82A54031CFAF29700350F7A /* AppDelegate.m in Sources */,
 				C82A54001CFAF29700350F7A /* main.m in Sources */,
+				C82A542E1CFAFF5000350F7A /* MenuView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
