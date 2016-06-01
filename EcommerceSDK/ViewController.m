@@ -31,6 +31,7 @@
         expandedSections = [[NSMutableIndexSet alloc] init];
     }
 
+    
    
 //     menu = [[MenuView alloc]initWithFrame:CGRectMake(0, 60, self.view.frame.size.width/2, self.view.frame.size.height-40)];
 //    menu.layer.borderWidth = 1;
@@ -41,7 +42,9 @@
     headerview.backgroundColor = [UIColor colorWithRed:238.0/255.0 green:238.0/255.0 blue:238.0/255.0 alpha:1];
     
     UIButton *menuButton = [[UIButton alloc]initWithFrame:CGRectMake(10, 25, 30, 30)];
-    menuButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"menuButton"]];
+   // menuButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"menuButton"]];
+    [menuButton setImage:[UIImage imageNamed:@"backButoon"] forState:UIControlStateSelected];
+    [menuButton setImage:[UIImage imageNamed:@"menuButton"] forState:UIControlStateNormal];
     [headerview addSubview:menuButton];
     [menuButton addTarget:self action:@selector(menuButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     
@@ -205,12 +208,15 @@
     
     
 
+
     CGRect inFrame = CGRectMake(0, 60, 0, self.view.frame.size.height-60);
     CGRect outFrame = CGRectMake(0, 60, self.view.frame.size.width-self.view.frame.size.width/4, self.view.frame.size.height-60);
     
     if (self.viewisHidden) {
         self.viewisHidden = NO;
-        
+        [self.tabBarController.tabBar setHidden:NO];
+
+
         [UIView animateWithDuration:0.5
                               delay:0.0
                             options: UIViewAnimationOptionCurveEaseIn
@@ -219,13 +225,18 @@
                              tableViews.frame = inFrame;
                              
 
+
+
                          }
                          completion:^(BOOL finished){
                              NSLog(@"outFrame!");
+                             [sender setImage:[UIImage imageNamed:@"menuButton"] forState:UIControlStateNormal];
                          }];
         
 
     } else {
+        [self.tabBarController.tabBar setHidden:YES];
+
         self.viewisHidden = YES;
         [UIView animateWithDuration:0.5
                               delay:0.0
@@ -237,9 +248,12 @@
                          }
                          completion:^(BOOL finished){
                              NSLog(@"inFrame!");
+                             [sender setImage:[UIImage imageNamed:@"backButoon"] forState:UIControlStateNormal];
                          }];
 
     }
+    
+    
 //    [UIView beginAnimations:nil context:nil];
 //    [UIView setAnimationDuration:0.5];
 //    [UIView commitAnimations];
@@ -248,4 +262,7 @@
 //    [self addChildViewController:controller];
 //    [controller didMoveToParentViewController:self];
 }
+
+
+
 @end

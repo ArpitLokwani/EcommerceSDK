@@ -18,6 +18,9 @@
 		C82A542B1CFAF63400350F7A /* CategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C82A542A1CFAF63400350F7A /* CategoryViewController.m */; };
 		C82A542E1CFAFF5000350F7A /* MenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = C82A542D1CFAFF5000350F7A /* MenuView.m */; };
 		C82A54301CFDECA000350F7A /* menuButton.png in Resources */ = {isa = PBXBuildFile; fileRef = C82A542F1CFDECA000350F7A /* menuButton.png */; };
+		C82A54321CFF385000350F7A /* backButoon.png in Resources */ = {isa = PBXBuildFile; fileRef = C82A54311CFF385000350F7A /* backButoon.png */; };
+		C82A54351CFF3B9B00350F7A /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C82A54341CFF3B9B00350F7A /* SearchViewController.m */; };
+		C82A54381CFF3D5500350F7A /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C82A54371CFF3D5500350F7A /* TabBarViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,11 @@
 		C82A542C1CFAFF5000350F7A /* MenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuView.h; sourceTree = "<group>"; };
 		C82A542D1CFAFF5000350F7A /* MenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuView.m; sourceTree = "<group>"; };
 		C82A542F1CFDECA000350F7A /* menuButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuButton.png; sourceTree = "<group>"; };
+		C82A54311CFF385000350F7A /* backButoon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backButoon.png; sourceTree = "<group>"; };
+		C82A54331CFF3B9B00350F7A /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		C82A54341CFF3B9B00350F7A /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		C82A54361CFF3D5500350F7A /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
+		C82A54371CFF3D5500350F7A /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +82,10 @@
 		C82A53F21CFAF29600350F7A = {
 			isa = PBXGroup;
 			children = (
+				C82A54361CFF3D5500350F7A /* TabBarViewController.h */,
+				C82A54371CFF3D5500350F7A /* TabBarViewController.m */,
+				C82A54331CFF3B9B00350F7A /* SearchViewController.h */,
+				C82A54341CFF3B9B00350F7A /* SearchViewController.m */,
 				C82A54261CFAF5F300350F7A /* ALCustomColoredAccessory.h */,
 				C82A54271CFAF5F300350F7A /* ALCustomColoredAccessory.m */,
 				C82A53FD1CFAF29700350F7A /* EcommerceSDK */,
@@ -108,6 +120,7 @@
 				C82A542C1CFAFF5000350F7A /* MenuView.h */,
 				C82A542D1CFAFF5000350F7A /* MenuView.m */,
 				C82A542F1CFDECA000350F7A /* menuButton.png */,
+				C82A54311CFF385000350F7A /* backButoon.png */,
 			);
 			path = EcommerceSDK;
 			sourceTree = "<group>";
@@ -211,6 +224,7 @@
 			files = (
 				C82A540E1CFAF29700350F7A /* LaunchScreen.storyboard in Resources */,
 				C82A540B1CFAF29700350F7A /* Assets.xcassets in Resources */,
+				C82A54321CFF385000350F7A /* backButoon.png in Resources */,
 				C82A54301CFDECA000350F7A /* menuButton.png in Resources */,
 				C82A54091CFAF29700350F7A /* Main.storyboard in Resources */,
 			);
@@ -234,8 +248,10 @@
 				C82A542B1CFAF63400350F7A /* CategoryViewController.m in Sources */,
 				C82A54061CFAF29700350F7A /* ViewController.m in Sources */,
 				C82A54031CFAF29700350F7A /* AppDelegate.m in Sources */,
+				C82A54381CFF3D5500350F7A /* TabBarViewController.m in Sources */,
 				C82A54001CFAF29700350F7A /* main.m in Sources */,
 				C82A542E1CFAFF5000350F7A /* MenuView.m in Sources */,
+				C82A54351CFF3B9B00350F7A /* SearchViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
