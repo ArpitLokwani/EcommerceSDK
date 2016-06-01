@@ -17,6 +17,7 @@
 		C82A54281CFAF5F300350F7A /* ALCustomColoredAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = C82A54271CFAF5F300350F7A /* ALCustomColoredAccessory.m */; };
 		C82A542B1CFAF63400350F7A /* CategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C82A542A1CFAF63400350F7A /* CategoryViewController.m */; };
 		C82A542E1CFAFF5000350F7A /* MenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = C82A542D1CFAFF5000350F7A /* MenuView.m */; };
+		C82A54301CFDECA000350F7A /* menuButton.png in Resources */ = {isa = PBXBuildFile; fileRef = C82A542F1CFDECA000350F7A /* menuButton.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		C82A542A1CFAF63400350F7A /* CategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryViewController.m; sourceTree = "<group>"; };
 		C82A542C1CFAFF5000350F7A /* MenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuView.h; sourceTree = "<group>"; };
 		C82A542D1CFAFF5000350F7A /* MenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuView.m; sourceTree = "<group>"; };
+		C82A542F1CFDECA000350F7A /* menuButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuButton.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				C82A542A1CFAF63400350F7A /* CategoryViewController.m */,
 				C82A542C1CFAFF5000350F7A /* MenuView.h */,
 				C82A542D1CFAFF5000350F7A /* MenuView.m */,
+				C82A542F1CFDECA000350F7A /* menuButton.png */,
 			);
 			path = EcommerceSDK;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 			files = (
 				C82A540E1CFAF29700350F7A /* LaunchScreen.storyboard in Resources */,
 				C82A540B1CFAF29700350F7A /* Assets.xcassets in Resources */,
+				C82A54301CFDECA000350F7A /* menuButton.png in Resources */,
 				C82A54091CFAF29700350F7A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -418,6 +422,7 @@
 				C82A541F1CFAF29700350F7A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C82A54201CFAF29700350F7A /* Build configuration list for PBXNativeTarget "EcommerceSDKUITests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +431,7 @@
 				C82A54221CFAF29700350F7A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

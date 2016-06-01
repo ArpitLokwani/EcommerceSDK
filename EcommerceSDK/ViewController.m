@@ -9,12 +9,16 @@
 #import "ViewController.h"
 #import "CategoryViewController.h"
 #import "MenuView.h"
+#import "ALCustomColoredAccessory.h"
+
 @interface ViewController ()
 {
     MenuView * menu ;
-    UITableView *tableView ;
+    UITableView *tableViews ;
     UIView *headerview;
+    
 }
+@property NSMutableArray *objects;
 
 @end
 
@@ -22,6 +26,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if (!expandedSections)
+    {
+        expandedSections = [[NSMutableIndexSet alloc] init];
+    }
+
    
 //     menu = [[MenuView alloc]initWithFrame:CGRectMake(0, 60, self.view.frame.size.width/2, self.view.frame.size.height-40)];
 //    menu.layer.borderWidth = 1;
@@ -31,19 +40,19 @@
     [self.view addSubview:headerview];
     headerview.backgroundColor = [UIColor colorWithRed:238.0/255.0 green:238.0/255.0 blue:238.0/255.0 alpha:1];
     
-    UIButton *menuButton = [[UIButton alloc]initWithFrame:CGRectMake(10, 25, 20, 20)];
-    menuButton.backgroundColor = [UIColor redColor];
+    UIButton *menuButton = [[UIButton alloc]initWithFrame:CGRectMake(10, 25, 30, 30)];
+    menuButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"menuButton"]];
     [headerview addSubview:menuButton];
     [menuButton addTarget:self action:@selector(menuButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     
 
     
-    tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 60, 0, self.view.frame.size.height-60)];
-    tableView.delegate = self;
-    tableView.dataSource = self;
-    [self.view addSubview:tableView];
-    tableView.layer.borderWidth = 0.5;
-    tableView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    tableViews = [[UITableView alloc] initWithFrame:CGRectMake(0, 60, 0, self.view.frame.size.height-60)];
+    tableViews.delegate = self;
+    tableViews.dataSource = self;
+    [self.view addSubview:tableViews];
+    tableViews.layer.borderWidth = 0.5;
+    tableViews.layer.borderColor = [UIColor lightGrayColor].CGColor;
     
     
     
@@ -55,26 +64,141 @@
     // Dispose of any resources that can be recreated.
 }
 
-
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (BOOL)tableView:(UITableView *)tableView canCollapseSection:(NSInteger)section
 {
-    return 10;
+        return YES;
+    
+}
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 5;
+
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if ([self tableView:tableView canCollapseSection:section])
+    {
+        if ([expandedSections containsIndex:section])
+        {
+            return 5; // return rows when expanded
+        }
+        
+        return 1; // only top row showing
+    }
+    
+    // Return the number of rows in the section.
+    return 1;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellID = @"CellIdentifier";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+    static NSString *CellIdentifier = @"Cell";
     
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    cell.textLabel.text = @"Hello World";
+   // cell.textLabel.text = @"Hello World";
+    if ([self tableView:tableView canCollapseSection:indexPath.section])
+    {
+        if (!indexPath.row)
+        {
+            // first row
+            cell.textLabel.text = [NSString stringWithFormat:@"Category %ld",(long)indexPath.section]; // only top row showing
+            
+            if ([expandedSections containsIndex:indexPath.section])
+            {
+                cell.accessoryView = [ALCustomColoredAccessory accessoryWithColor:[UIColor grayColor] type:ALCustomColoredAccessoryTypeUp];
+            }
+            else
+            {
+                cell.accessoryView = [ALCustomColoredAccessory accessoryWithColor:[UIColor grayColor] type:ALCustomColoredAccessoryTypeDown];
+            }
+        }
+        else
+        {
+            // all other rows
+            cell.textLabel.text = [NSString stringWithFormat:@"Sub Category %ld",(long)indexPath.row];
+            cell.accessoryView = nil;
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        }
+    }
+    else
+    {
+        cell.accessoryView = nil;
+        cell.textLabel.text = @"Normal Cell";
+        
+    }
+
     
     return cell;
 }
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([self tableView:tableView canCollapseSection:indexPath.section])
+    {
+        if (!indexPath.row)
+        {
+            // only first row toggles exapand/collapse
+            [tableView deselectRowAtIndexPath:indexPath animated:YES];
+            
+            NSInteger section = indexPath.section;
+            BOOL currentlyExpanded = [expandedSections containsIndex:section];
+            NSInteger rows;
+            
+            NSMutableArray *tmpArray = [NSMutableArray array];
+            
+            if (currentlyExpanded)
+            {
+                rows = [self tableView:tableView numberOfRowsInSection:section];
+                [expandedSections removeIndex:section];
+                
+            }
+            else
+            {
+                [expandedSections addIndex:section];
+                rows = [self tableView:tableView numberOfRowsInSection:section];
+            }
+            
+            for (int i=1; i<rows; i++)
+            {
+                NSIndexPath *tmpIndexPath = [NSIndexPath indexPathForRow:i
+                                                               inSection:section];
+                [tmpArray addObject:tmpIndexPath];
+            }
+            
+            UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            
+            if (currentlyExpanded)
+            {
+                [tableView deleteRowsAtIndexPaths:tmpArray
+                                 withRowAnimation:UITableViewRowAnimationTop];
+                
+                cell.accessoryView = [ALCustomColoredAccessory accessoryWithColor:[UIColor grayColor] type:ALCustomColoredAccessoryTypeDown];
+                
+            }
+            else
+            {
+                [tableView insertRowsAtIndexPaths:tmpArray
+                                 withRowAnimation:UITableViewRowAnimationTop];
+                cell.accessoryView =  [ALCustomColoredAccessory accessoryWithColor:[UIColor grayColor] type:ALCustomColoredAccessoryTypeUp];
+                
+            }
+        }
+        else {
+            NSLog(@"Selected Section is %ld and subrow is %ld ",(long)indexPath.section ,(long)indexPath.row);
+            
+        }
+        
+    }
+    else{
+       // DetailViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailViewController"];
+        //[self.navigationController pushViewController:controller animated:YES];
+        
+    }
+    
+}
 
 - (void)menuButtonPressed:(id)sender {
     
@@ -92,7 +216,8 @@
                             options: UIViewAnimationOptionCurveEaseIn
                          animations:^{
                            //  menu.frame = outFrame;
-                             tableView.frame = inFrame;
+                             tableViews.frame = inFrame;
+                             
 
                          }
                          completion:^(BOOL finished){
@@ -107,7 +232,7 @@
                             options: UIViewAnimationOptionCurveEaseOut
                          animations:^{
                             // menu.frame = inFrame;
-                             tableView.frame = outFrame;
+                             tableViews.frame = outFrame;
 
                          }
                          completion:^(BOOL finished){

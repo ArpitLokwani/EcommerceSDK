@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+{
+    NSMutableIndexSet *expandedSections;
+
+}
 
 @property (weak, nonatomic) IBOutlet UIButton *Menubutton;
 @property  BOOL viewisHidden;
